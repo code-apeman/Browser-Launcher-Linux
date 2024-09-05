@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.BrowserLauncher" name="Browser Launcher" version="1.3" provider-name="AddonScriptorDE + Sandmann79 + Sequoia888">
+<addon id="plugin.BrowserLauncher" name="Browser Launcher (Linux)" version="0.1" provider-name="AddonScriptorDE + Sandmann79 + Sequoia888 + GhostNoise (code-apeman)">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
     </requires>
@@ -11,10 +11,11 @@
         <summary lang="en_GB">Browser Launcher</summary>
         <language></language>
         <description lang="en_GB">Launch websites via selected Browser in Kiosk-mode</description>
+        <description lang="ru">3anyck Be6cauToB 4epe3 BbI6paHHbIu 6pay3ep</description>
         <description lang="de">Öffnet Websiten mit dem ausgewählten Browser im Vollbildmodus</description>
         <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-        <email>AddonScriptorDE at yahoo dot de</email>
-        <website></website>
+        <email>software@ghostnoise.ru</email>
+	<website>https://software.ghostnoise.ru</website>
         <assets>
 	  <icon>icon.png</icon>
 	</assets>
