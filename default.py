@@ -39,21 +39,16 @@ if not os.path.isdir(profileFolder):
 if not os.path.isdir(siteFolder):
     os.mkdir(siteFolder)
 
-youtubeUrl = "http://www.youtube.com/leanback"
+youtubeUrl = "http://www.youtube.com/tv"
 vimeoUrl = "http://www.vimeo.com/couchmode"
 
-bPath = ['C:\\Program Files\\Internet Explorer\\iexplore.exe',
-         'C:\\Program Files\\Hillcrest Labs\\Kylo\\Kylo.exe',
-         'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-         'C:\\Program Files\\Mozilla Firefox\\firefox.exe',
-         'C:\\Program Files\\Opera\opera.exe']
-bKiosk = ['-k ', '', '--kiosk ', '', '-fullscreen ']
-bProfile = ['', '', '--user-data-dir=', '-profile ', '-pd ']
-bAgent = ['', '', '--user-agent=', '', '']
-bExtra = ['',
-          '', 
-          '--start-maximized --disable-translate --disable-new-tab-first-run --no-default-browser-check --no-first-run ',
-          '',
+# Hardcoded paths... WHY?!?!?!?!?!?!?!?!
+bPath = ['/usr/bin/firefox',
+         '/usr/bin/chromium']
+bKiosk = ['--kiosk ', '--kiosk ']
+bProfile = ['--user-data-dir=', '-profile ']
+bAgent = ['--user-agent=', '']
+bExtra = ['--start-maximized --disable-translate --disable-new-tab-first-run --no-default-browser-check --no-first-run ',
           '']
 
 def index():
@@ -147,13 +142,15 @@ def showSite(url, stopPlayback, kiosk, userAgent, custBrowser):
     if custBrowser: selBrowser = int(custBrowser)
     path = bPath[selBrowser]
     fullUrl = False
-    path86 = path.replace("\\Program Files\\", "\\Program Files (x86)\\")
-    if useCustomPath and os.path.exists(customPath) and not custBrowser:
-        fullUrl = getFullPath(customPath, url, kiosk, userAgent, selBrowser)
-    elif os.path.exists(path):
-        fullUrl = getFullPath(path, url, kiosk, userAgent, selBrowser)
-    elif os.path.exists(path86):
-        fullUrl = getFullPath(path86, url, kiosk, userAgent, selBrowser)
+    # PLEASE STOP WITH YOUR WINDOWS-SPECIFIC B. S.!!!!!
+    #path86 = path.replace("\\Program Files\\", "\\Program Files (x86)\\")
+    #if useCustomPath and os.path.exists(customPath) and not custBrowser:
+    #    fullUrl = getFullPath(customPath, url, kiosk, userAgent, selBrowser)
+    #elif os.path.exists(path):
+    #    fullUrl = getFullPath(path, url, kiosk, userAgent, selBrowser)
+    #elif os.path.exists(path86):
+    #    fullUrl = getFullPath(path86, url, kiosk, userAgent, selBrowser)
+    fullUrl = getFullPath(path, url, kiosk, userAgent, selBrowser)
     if fullUrl:
         print (fullUrl)
         if xbmc.getCondVisibility('system.platform.windows'):
